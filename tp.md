@@ -9,12 +9,7 @@
 - Points forts : structure modulaire, forte intégration avec TypeScript, outils CLI puissants, et prise en charge de la réactivité et des animations.
 
 **TypeScript** :
-- TypeScript est un langage similaire à JavaScript qui ajoute des types statiques, des interfaces, et d’autres fonctionnalités pour améliorer la maintenabilité et la robustesse du code. Il ressemble beaucoup, selon nous, à Java
-- Avantages : détection des erreurs au moment de la compilation, meilleur support pour les gros projets, et intégration native dans Angular. Nous avons meme lu sur des forums que Angular est beaucoup plus interessant quand le projet commence a grandir.
-
-**Pourquoi Angular + TypeScript ?**
-- Angular utilise TypeScript pour structurer le code et faciliter la maintenance.
-- TypeScript permet de mieux gérer les erreurs dans les projets complexes,surtout les erreurs de types, ce qui est idéal pour les applications SPA.
+- TypeScript est un langage similaire à JavaScript qui ajoute des types statiques, des interfaces, et d’autres fonctionnalités pour améliorer la maintenabilité et la robustesse du code. Ce qui peut permet d'avoir un code plus clair et plus facile à débuguer.
 
 **Objectif du TP** :
 - Découvrir Angular en créant une petite application SPA avec une navigation, des composants, des animations.
@@ -28,7 +23,7 @@
 **Objectif** : Installer l’outil en ligne de commande Angular CLI pour créer et gérer des projets Angular.
 
 **Prérequis** :
-- **Node.js** et **npm** doivent être installés sur la machine (version recommandée : Node.js 18.x ou 20.x LTS, npm 8.x ou supérieur). j'ai galere avec l'installation parce que j'avais une version incompatible.
+- **Node.js** et **npm** doivent être installés sur la machine (version recommandée : Node.js 18.x ou 20.x LTS, npm 8.x ou supérieur). 
   - Vérifiez avec :
     ```bash
     node --version
@@ -66,7 +61,7 @@
    ```
    - **Explication** :
      - **Zoneless** : Nouvelle approche expérimentale sans `zone.js` pour la détection des changements. Dans notre cas, on reste sur `No`.
-     - **CSS** : Format simple pour les styles (alternative : SCSS pour plus de flexibilité).
+     - **CSS** : Utilisation du CSS classique.
      - **SSR/SSG** : Non nécessaire pour aujourd'hui.
 
 3. Accédez au dossier du projet :
@@ -82,14 +77,7 @@
 ---
 
 #### 3. Lancer le projet et comprendre son organisation
-**Objectif** : Lancer l’application Angular par défaut et explorer l’organisation du projet.
-
-**Étapes** :
-1. Lancez le serveur de développement :
-   ```bash
-   ng serve
-   ```
-   - cliquer sur `http://localhost:4200`.
+**Objectif** : Explorer l’organisation du projet, puis lancer le serveur de developpement.
 
 
 **Organisation d’un projet Angular** :
@@ -107,18 +95,26 @@ fichiers clés dans le projet:
 - **`package.json`** : Liste les dépendances et scripts npm
 - **`angular.json`** : Configuration d’Angular CLI (build, serve, etc.)
 
+**Utiliser ng serve** :
+ Lancez le serveur de développement :
+   ```bash
+   ng serve
+   ```
+   - cliquer sur `http://localhost:4200`.
 
----
+Dans votre navigateur vous pourrez voir la page de base d'Angular, il s'agit de L'Index.html qui fait appel à app.html ( les composants peuvent appeler d'autres composants dans leur template html ce qui rend Angular très modulaire !).
+
 
 #### 4. Créer votre premier composant (une navbar)
 **Objectif** : Créer un composant Angular pour une barre de navigation.
 
 **Étapes** :
-1. Générez un composant nommé `navbar` :
+1. Générez un composant nommé `navbar` , on peut générer directement des composants  avec Cli Angular :
    ```bash
    ng generate component navbar
    ```
    - Cela va crée un dossier `src/app/navbar` avec les fichiers `navbar.component.ts`, `.html`, `.css`, et `.spec.ts`.
+   - Tout comme le composant racine "app" les composants dans Angular sont tous composés d'un fichier ts qui encapsulent la logique, d'un fichier html, d'un fichier css ainsi que d'un fichier .spec.ts (qu'on touche rarement).
 
 2. Modifiez le template de la navbar (`src/app/navbar/navbar.component.html` ou `src/app/navbar/navbar.html` ) :
    ```html
