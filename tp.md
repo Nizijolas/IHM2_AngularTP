@@ -83,11 +83,7 @@
 **Organisation d’un projet Angular** :
 fichiers clés dans le projet:
 - **`src/`** : Contient le code source de l’application
-  - **`app/`** : Contient les composants, modules, et services principaux
-    - `app.component.ts` ou `app.ts` : Composant racine de l’application
-    - `app.component.html` ou `app.html`: Template HTML du composant racine
-    - `app.component.css` ou `app.css`   : Styles CSS du composant racine
-    - `app.module.ts` : Module principal qui déclare les composants et importe les modules nécessaires
+  - **`app/`** : Contient les composants, modules, et services principaux ( c'est ici que vous travaillerez la plupart du temps lors d'un projet Angular )
   - **`assets/`** : Contient les fichiers statiques (images, JSON, etc.)
   - **`index.html`** : Point d’entrée HTML de l’application
   - **`main.ts`** : Point d’entrée TypeScript qui bootstrap l’application
@@ -103,7 +99,13 @@ fichiers clés dans le projet:
    - cliquer sur `http://localhost:4200`.
 
 Dans votre navigateur vous pourrez voir la page de base d'Angular, il s'agit de L'Index.html qui fait appel à app.html ( les composants peuvent appeler d'autres composants dans leur template html ce qui rend Angular très modulaire !).
+Si on regarde dans Index.html on peut voir la balise :
 
+```html
+  <app-root></app-root>
+```
+Donc le navigateur lance Index.html qui fais lui même appel au composant principal app.
+Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app faire appel à d'autres composants qui pourront eux même faire appel à d'autres composants etc, etc. :) !
 
 #### 4. Créer votre premier composant (une navbar)
 **Objectif** : Créer un composant Angular pour une barre de navigation.
