@@ -17,7 +17,7 @@
 - TypeScript permet de mieux gérer les erreurs dans les projets complexes,surtout les erreurs de types, ce qui est idéal pour les applications SPA.
 
 **Objectif du TP** :
-- Découvrir Angular en créant une petite application SPA avec une navigation, des composants, des animations, et une connexion à une API externe.
+- Découvrir Angular en créant une petite application SPA avec une navigation, des composants, des animations.
 - Comprendre l’organisation d’un projet Angular et les outils associés.
 
 ---
