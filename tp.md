@@ -23,7 +23,7 @@
 **Objectif** : Installer l’outil en ligne de commande Angular CLI pour créer et gérer des projets Angular.
 
 **Prérequis** :
-- **Node.js** et **npm** doivent être installés sur la machine (version recommandée : Node.js 18.x ou 20.x LTS, npm 8.x ou supérieur). 
+- **Node.js** et **npm** doivent être installés sur la machine ( Node.js - v20.19.0 ou plus récent )
   - Vérifiez avec :
     ```bash
     node --version
@@ -40,7 +40,8 @@
    ```bash
    ng --version
    ```
-   Cela affiche la version d’Angular CLI, Node.js, et d’autres dépendances.
+   Cela affiche la version d’Angular CLI.
+   pour mener à bien ce TP il faut que la version ne soit pas plus ancienne que la version 18.0.0
 
 
 ---
@@ -83,7 +84,7 @@
 **Organisation d’un projet Angular** :
 fichiers clés dans le projet:
 - **`src/`** : Contient le code source de l’application
-  - **`app/`** : Contient les composants, modules, et services principaux ( c'est ici que vous travaillerez la plupart du temps lors d'un projet Angular )
+  - **`app/`** : Contient le composant racine "app" & contient les composants, modules, et services principaux ( c'est ici que vous travaillerez la plupart du temps lors d'un projet Angular )
   - **`assets/`** : Contient les fichiers statiques (images, JSON, etc.)
   - **`index.html`** : Point d’entrée HTML de l’application
   - **`main.ts`** : Point d’entrée TypeScript qui bootstrap l’application
@@ -91,8 +92,10 @@ fichiers clés dans le projet:
 - **`package.json`** : Liste les dépendances et scripts npm
 - **`angular.json`** : Configuration d’Angular CLI (build, serve, etc.)
 
+#### Hello MAAARC si tu lis ça je pensais que l'arborescence des fichiers n'est pas bonne et correspond aux anciennes versions d'Angular.
+
 **Utiliser ng serve** :
- Lancez le serveur de développement :
+ Lancez le serveur de développement en éxécutant dans un terminal depuis la racine du projet :
    ```bash
    ng serve
    ```
@@ -104,8 +107,14 @@ Si on regarde dans Index.html on peut voir la balise :
 ```html
   <app-root></app-root>
 ```
-Donc le navigateur lance Index.html qui fais lui même appel au composant principal app.
-Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app faire appel à d'autres composants qui pourront eux même faire appel à d'autres composants etc, etc. :) !
+Donc le navigateur charge Index.html qui fais lui même appel au composant principal app, grâce à la directive angular app-root.
+Et donc ce que l'on fait dans Angular, c'est qu"à l'intérieur du composant app on fera appel à d'autres composants qui pourront eux même faire appel à d'autres composants etc, etc.!
+Vous pouvez maintenant supprimer le contenu de app.html et le remplacer par :
+```
+<h1> Hello World ! </h1>
+```
+
+Et observez le changement dans votre navigateur !
 
 #### 4. Créer votre premier composant (une navbar)
 **Objectif** : Créer un composant Angular pour une barre de navigation.
@@ -115,22 +124,23 @@ Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app
    ```bash
    ng generate component navbar
    ```
-   - Cela va crée un dossier `src/app/navbar` avec les fichiers `navbar.component.ts`, `.html`, `.css`, et `.spec.ts`.
-   - Tout comme le composant racine "app" les composants dans Angular sont tous composés d'un fichier ts qui encapsulent la logique, d'un fichier html, d'un fichier css ainsi que d'un fichier .spec.ts (qu'on touche rarement).
+   - Cela va crée un dossier `src/app/navbar` avec les fichiers `navbar.ts`, `navbar.html`, `navbar.css`, et `navbar.spec.ts`.
+   - Les composants dans Angular sont tous composés d'un fichier ts qui encapsulent la logique, d'un fichier html, d'un fichier css ( ainsi que d'un fichier .spec.ts que l'on touche rarement ).
 
-2. Modifiez le template de la navbar (`src/app/navbar/navbar.component.html` ou `src/app/navbar/navbar.html` ) :
+2. Modifiez le template de la navbar (`navbar.html` ) :
+   - Pour l'instant on laisse toutes les routes à '/ ' on verra plus tard ce point.
    ```html
    <nav class="navbar">
      <h1>Mon Application</h1>
      <ul>
        <li><a href="/">Accueil</a></li>
-       <li><a href="/about">À propos</a></li>
-       <li><a href="/contact">Contact</a></li>
+       <li><a href="/">À propos</a></li>
+       <li><a href="/">Contact</a></li>
      </ul>
    </nav>
    ```
 
-3. Ajoutez des styles (`src/app/navbar/navbar.component.css` ou  `src/app/navbar/navbar.css`) :
+3. Ajoutez des styles (`navbar.css`) :
    ```css
    .navbar {
      background-color: #333;
@@ -151,16 +161,38 @@ Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app
    }
    ```
 
-4. Intégrez la navbar dans le composant racine (`src/app/app.component.html` ou src/app/app.html`) :
+
+4. Intégrez la navbar dans le composant racine (`app.html`) :
+- Pour savoir quel sera le nom de la balise à utiliser pour appeler navbar depuis d'autre composants il faut regarder dans **navbar.ts** ou l'on peut voir dans le code :
+
+``` typescript
+selector: 'app-navbar',
+```
+On sait maintenant que l'on peut faire appel à la navbar dans app.html comme ceci :
    ```html
    <app-navbar></app-navbar>
-   <router-outlet></router-outlet>
    ```
 
 ---
 
 #### 5. Créer plusieurs routes en SPA avec le module Router
 **Objectif** : Implémenter un système de navigation avec plusieurs pages dans une SPA.
+
+L'idée  ici ça va être d'utiliser la navbar pour naviguer d'une page à l'autre mais sans que le navigateur charge réellement une autre page ( et donc faire vraiment une spa ) pour cela on va utilisé la fonctionnalité Router de Angular.
+Ce que l'on va devoir faire c'est avoir un balise dynamique qui charge un composant ou un autre selon l'URL actuel sans recharger complétement la page !
+Cette balise dynamique dans Angular c'est celle ci :
+
+```html
+<router-outlet></router-outlet>
+```
+Vous pouvez donc mettre cette balise dans le template app.html !
+Cependant pour que cela fonctionne il faut importer le module correspondant dans app.ts
+```typescript
+import { RouterOutlet } from '@angular/router';
+```
+
+Et maintenant ce que l'on doit faire c'est faire comprendre à Angular quel composant charger dans router outlet selon la route.
+Commençons par créer des composants à cette fin !
 
 **Étapes** :
 1. Générez des composants pour les pages dans le navbar:
@@ -170,41 +202,27 @@ Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app
    ng generate component contact
    ```
 
-2. Configurez le routage dans `src/app/app.module.ts` :
+Pour que Angular sache que l'on veut charger home quand on est dans '/home', about dans '/about' 
+Cela passe se passe dans app.routes.ts
+2. Configurez le routage dans `app.route.ts` :
+  Il faut modifier la variable routes qui associe un chemin à un componsant de tel manière :
    ```typescript
-   import { NgModule } from '@angular/core';
-   import { BrowserModule } from '@angular/platform-browser';
-   import { RouterModule, Routes } from '@angular/router';
-   import { AppComponent } from './app.component';
-   import { NavbarComponent } from './navbar/navbar.component';
-   import { HomeComponent } from './home/home.component';
-   import { AboutComponent } from './about/about.component';
-   import { ContactComponent } from './contact/contact.component';
-
    const routes: Routes = [
      { path: '', component: HomeComponent },
      { path: 'about', component: AboutComponent },
      { path: 'contact', component: ContactComponent },
    ];
-
-   @NgModule({
-     declarations: [
-       AppComponent,
-       NavbarComponent,
-       HomeComponent,
-       AboutComponent,
-       ContactComponent,
-     ],
-     imports: [
-       BrowserModule,
-       RouterModule.forRoot(routes),
-     ],
-     bootstrap: [AppComponent],
-   })
-   export class AppModule {}
    ```
+   **Attention on ne met pas le '/ '**
 
-3. Mettez à jour la navbar pour utiliser les routes (`src/app/navbar/navbar.component.html` ou `src/app/navbar/navbar.html`) :
+3. Mettez à jour la navbar pour utiliser les routes :
+   - C'est presque finis mais pour que cela fonctionne on ne peut pas utiliser le classique href="/..."  qui reloaderais complétement page, on doit à la place utiliser une directive d'Angular :  **routerLink="/..."**. 
+
+    - Pour ce faire il faut importer le module RouterLink dans le fichier navbar.ts :
+   ```typescript
+    import { RouterLink } from '@angular/router';
+   ```
+    - Puis s'en servir à la place de href, etmettre les routes que l'on avait renseigner dans app.routes.ts :
    ```html
    <nav class="navbar">
      <h1>Mon Application</h1>
@@ -216,22 +234,7 @@ Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app
    </nav>
    ```
 
-4. Ajoutez du contenu aux composants :
-   - `home.component.html` :
-     ```html
-     <h2>Bienvenue chez Marc et Nicolas TP</h2>
-     ```
-   - `about.component.html` :
-     ```html
-
-     <h2>À propos de nous</h2>
-     <p>Nous sommes des etudiants de M2 DCISS </p>
-     ``` 
-   - `contact.component.html` :
-     ```html
-     <h2>Contactez-nous</h2>
-     <p>Email : contact@monapp.com</p>
-     ```
+Vous pouvez maintenant naviguer entre les trois routes sans reload de la page mais avec seulement un changement du composant à l'intérieur de router outlet ! 
 
 ---
 
@@ -255,7 +258,7 @@ Et donc dans Angular ce que l'on va faire c'est à l'intérieur du composant app
      export class AppModule {}
      ```
 
-2. Créez une animation dans le composant `home` (`src/app/home/home.component.ts`) :
+2. Créez une animation dans le composant `home` (`app.ts`) :
    ```typescript
    import { Component } from '@angular/core';
    import { trigger, state, style, animate, transition } from '@angular/animations';
