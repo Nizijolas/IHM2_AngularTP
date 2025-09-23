@@ -43,6 +43,12 @@
    Cela affiche la version d’Angular CLI.
    pour mener à bien ce TP il faut que la version ne soit pas plus ancienne que la version 18.0.0
 
+ 
+>Ps : à la fin de ce tp pour désinstaller Angular, si vous ne souhaitez pas conserver les paquets sur votre machine :
+```bash
+    npm uninstall -g @angular/cli
+```
+
 
 ---
 
@@ -50,11 +56,11 @@
 **Objectif** : Générer un projet Angular avec une configuration adaptée au TP.
 
 **Étapes** :
-1. Créez un nouveau projet :
+1. _**Créez un nouveau projet :**_
    ```bash
    ng new projet_tp
    ```
-2. Répondez aux questions de configuration :
+2. _**Répondez aux questions de configuration :**_
    ```bash
    ✔ Do you want to create a 'zoneless' application without zone.js (Developer Preview)? No
    ✔ Which stylesheet format would you like to use? CSS
@@ -65,15 +71,7 @@
      - **CSS** : Utilisation du CSS classique.
      - **SSR/SSG** : Non nécessaire pour aujourd'hui.
 
-3. Accédez au dossier du projet :
-   ```bash
-   cd projet_tp
-   ```
-
-4. Ouvrez le projet dans un éditeur de code (ex. : VS Code) :
-   ```bash
-   code .
-   ```
+> Vous pouvez maintenant ouvrir le dossier `projet_tp` depuis un éditeur de Code
 
 ---
 
@@ -195,7 +193,7 @@ Et maintenant ce que l'on doit faire c'est faire comprendre à Angular quel comp
 Commençons par créer des composants à cette fin !
 
 **Étapes** :
-1. Générez des composants pour les pages dans le navbar:
+1. _**Générez des composants pour les pages dans le navbar:**_
    ```bash
    ng generate component home
    ng generate component about
@@ -204,7 +202,7 @@ Commençons par créer des composants à cette fin !
 
 Pour que Angular sache que l'on veut charger home quand on est dans '/home', about dans '/about' 
 Cela passe se passe dans app.routes.ts
-2. Configurez le routage dans `app.route.ts` :
+2. _**Configurez le routage dans `app.route.ts` :**_
   Il faut modifier la variable routes qui associe un chemin à un componsant de tel manière :
    ```typescript
    const routes: Routes = [
@@ -215,7 +213,7 @@ Cela passe se passe dans app.routes.ts
    ```
    **Attention on ne met pas le '/ '**
 
-3. Mettez à jour la navbar pour utiliser les routes :
+3. _**Mettez à jour la navbar pour utiliser les routes :**_
    - C'est presque finis mais pour que cela fonctionne on ne peut pas utiliser le classique href="/..."  qui reloaderais complétement page, on doit à la place utiliser une directive d'Angular :  **routerLink="/..."**. 
 
     - Pour ce faire il faut importer le module RouterLink dans le fichier navbar.ts :
@@ -242,7 +240,7 @@ Vous pouvez maintenant naviguer entre les trois routes sans reload de la page ma
 **Objectif** : Ajouter une animation simple à l’application avec le module `BrowserAnimationsModule`.
 
 **Étapes** :
-1. Installez le module d’animations si ce n’est pas déjà fait :
+1. _**Installez le module d’animations si ce n’est pas déjà fait :**_
    - Par défaut, il est inclus dans un projet Angular. Vérifiez dans `app.module.ts` :
      ```typescript
      import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
