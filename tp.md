@@ -1,22 +1,6 @@
 ## TP Angular
 **Par Marc-Arold Rosemond & Nicolas Dijoud**
 
-### Introduction : C’est quoi Angular et TypeScript ?
-
-**Angular** :
-- Angular est un framework open-source développé par Google pour créer des applications web modernes, en particulier des **Single Page Applications (SPA)**.
-- Il utilise une architecture basée sur des **composants** et offre des fonctionnalités comme le routage, la gestion des formulaires, et les appels HTTP.
-- Points forts : structure modulaire, forte intégration avec TypeScript, outils CLI puissants, et prise en charge de la réactivité et des animations.
-
-**TypeScript** :
-- TypeScript est un langage similaire à JavaScript qui ajoute des types statiques, des interfaces, et d’autres fonctionnalités pour améliorer la maintenabilité et la robustesse du code. Ce qui peut permet d'avoir un code plus clair et plus facile à débuguer.
-
-**Objectif du TP** :
-- Découvrir Angular en créant une petite application SPA avec une navigation, des composants, des animations.
-- Comprendre l’organisation d’un projet Angular et les outils associés.
-
----
-
 ### Plan du TP
 
 #### 1. Installer Angular CLI
