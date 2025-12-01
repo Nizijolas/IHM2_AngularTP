@@ -191,13 +191,18 @@ Cela passe se passe dans app.routes.ts
 2. _**Configurez le routage dans `app.route.ts` :**_
   Il faut modifier la variable routes qui associe un chemin à un composant de tel manière :
    ```typescript
-   const routes: Routes = [
-     { path: '', component: Home },
-     { path: 'about', component: About },
-     { path: 'contact', component: Contact },
+   import { Routes } from '@angular/router';
+   import { Home } from './home/home';
+   import { About } from './about/about';
+   import { Contact } from './contact/contact';
+
+    const routes: Routes = [
+    { path: '', component: Home },
+    { path: 'about', component: About },
+    { path: 'contact', component: Contact },
    ];
    ```
-   **Attention on ne met pas le '/ ' , et il est nécessaire d'importer les components**
+   **Attention on ne met pas le '/ '**
 
 3. _**Mettez à jour la navbar pour utiliser les routes :**_
    - C'est presque finis mais pour que cela fonctionne on ne peut pas utiliser le classique href="/..."  qui reloaderais complétement page, on doit à la place utiliser une directive d'Angular :  **routerLink="/..."**. 
