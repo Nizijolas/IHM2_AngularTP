@@ -76,8 +76,6 @@ fichiers clés dans le projet:
 - **`package.json`** : Liste les dépendances et scripts npm
 - **`angular.json`** : Configuration d’Angular CLI (build, serve, etc.)
 
-#### Hello MAAARC si tu lis ça je pensais que l'arborescence des fichiers n'est pas bonne et correspond aux anciennes versions d'Angular.
-
 **Utiliser ng serve** :
  Lancez le serveur de développement en éxécutant dans un terminal depuis la racine du projet :
    ```bash
@@ -85,14 +83,13 @@ fichiers clés dans le projet:
    ```
    - cliquer sur `http://localhost:4200`.
 
-Dans votre navigateur vous pourrez voir la page de base d'Angular, il s'agit de L'Index.html qui fait appel à app.html ( les composants peuvent appeler d'autres composants dans leur template html ce qui rend Angular très modulaire !).
+Dans votre navigateur vous pourrez voir la page de base d'Angular, il s'agit de L'Index.html.
 Si on regarde dans Index.html on peut voir la balise :
 
 ```html
   <app-root></app-root>
 ```
 Donc le navigateur charge Index.html qui fais lui même appel au composant principal app, grâce à la directive angular app-root.
-Et donc ce que l'on fait dans Angular, c'est qu"à l'intérieur du composant app on fera appel à d'autres composants qui pourront eux même faire appel à d'autres composants etc, etc.!
 Vous pouvez maintenant supprimer le contenu de app.html et le remplacer par :
 ```
 <h1> Hello World ! </h1>
