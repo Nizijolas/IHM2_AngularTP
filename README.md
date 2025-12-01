@@ -124,10 +124,12 @@ Et observez le changement dans votre navigateur !
      background-color: #333;
      padding: 1rem;
      color: white;
+     text-align: center;
    }
    ul {
      list-style: none;
      display: flex;
+     justify-content: center;
      gap: 1rem;
    }
    a {
