@@ -238,57 +238,9 @@ Cela passe se passe dans app.routes.ts
    ```
 
 Vous pouvez maintenant naviguer entre les trois routes sans reload de la page mais avec seulement un changement du component à l'intérieur de router outlet ! 
-Vous pouvez vous amusez à mettre ce que vous voulez dans les components Home, About & Contact en touchant à à l'html au css et au ts.
+
+**Vous pouvez vous amusez à mettre ce que vous voulez dans les components Home, About & Contact en touchant  à l'html au css et au ts.**
 
 ---
 
-#### 6. Utiliser un module Angular pour faire une animation
-**Objectif** : Ajouter une animation simple à l’application avec le module `BrowserAnimationsModule`.
 
-**Étapes** :
-1. _**Installez le module d’animations si ce n’est pas déjà fait :**_
-   - Par défaut, il est inclus dans un projet Angular. Vérifiez dans `app.module.ts` :
-     ```typescript
-     import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-     @NgModule({
-       imports: [
-         BrowserModule,
-         RouterModule.forRoot(routes),
-         BrowserAnimationsModule,
-       ],
-       // ici on aura le reste du fichier, on a choisi de rester succint
-     })
-     export class AppModule {}
-     ```
-
-2. Créez une animation dans le composant `home` (`app.ts`) :
-   ```typescript
-   import { Component } from '@angular/core';
-   import { trigger, state, style, animate, transition } from '@angular/animations';
-
-   @Component({
-     selector: 'app-home',
-     templateUrl: './home.component.html',
-     styleUrls: ['./home.component.css'],
-     animations: [
-       trigger('fadeIn', [
-         state('void', style({ opacity: 0 })),
-         transition(':enter', [
-           animate('1s ease-in', style({ opacity: 1 })),
-         ]),
-       ]),
-     ],
-   })
-   export class HomeComponent {}
-   ```
-
-3. Appliquez l’animation dans `home.component.html` :
-   ```html
-   <div @fadeIn>
-     <h2>Bienvenue sur la page d'accueil</h2>
-     <p> ah ah Regarger la magie s'operer fade-in.</p>
-   </div>
-   ```
-
----
