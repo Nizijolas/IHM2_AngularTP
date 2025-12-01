@@ -71,7 +71,7 @@ fichiers clés dans le projet:
   - **`app/`** : Contient le composant racine "app" & contient les composants, modules, et services principaux ( c'est ici que vous travaillerez la plupart du temps lors d'un projet Angular )
   - **`index.html`** : Point d’entrée HTML de l’application
   - **`main.ts`** : Point d’entrée TypeScript qui bootstrap l’application
-  - **`angular.json`** : Configuration d’Angular CLI (build, serve, etc.)
+  - **`angular.json`** : fichier de configuration d'Angular
 
 **Utiliser ng serve** :
  Lancez le serveur de développement en éxécutant dans un terminal depuis la racine du projet :
