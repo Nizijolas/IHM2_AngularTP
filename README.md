@@ -49,11 +49,13 @@
    ✔ Do you want to create a 'zoneless' application without zone.js (Developer Preview)? No
    ✔ Which stylesheet format would you like to use? CSS
    ✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? No
+   ? Which AI tools do you want to configure with Angular best practices? None
    ```
    - **Explication** :
      - **Zoneless** : Nouvelle approche expérimentale sans `zone.js` pour la détection des changements. Dans notre cas, on reste sur `No`.
      - **CSS** : Utilisation du CSS classique.
      - **SSR/SSG** : Non nécessaire pour aujourd'hui.
+     - **AI tools** : Pas besoin
 
 > Vous pouvez maintenant ouvrir le dossier `projet_tp` depuis un éditeur de Code
 
