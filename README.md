@@ -237,7 +237,8 @@ Cela passe se passe dans app.routes.ts
    </nav>
    ```
 
-Vous pouvez maintenant naviguer entre les trois routes sans reload de la page mais avec seulement un changement du composant à l'intérieur de router outlet ! 
+Vous pouvez maintenant naviguer entre les trois routes sans reload de la page mais avec seulement un changement du component à l'intérieur de router outlet ! 
+Vous pouvez vous amusez à mettre ce que vous voulez dans les components Home, About & Contact en touchant à à l'html au css et au ts.
 
 ---
 
