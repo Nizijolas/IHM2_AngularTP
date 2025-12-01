@@ -196,7 +196,7 @@ Cela passe se passe dans app.routes.ts
    import { About } from './about/about';
    import { Contact } from './contact/contact';
 
-    const routes: Routes = [
+    export const routes: Routes = [
     { path: '', component: Home },
     { path: 'about', component: About },
     { path: 'contact', component: Contact },
@@ -210,6 +210,11 @@ Cela passe se passe dans app.routes.ts
     - Pour ce faire il faut importer le module RouterLink dans le fichier navbar.ts :
    ```typescript
     import { RouterLink } from '@angular/router';
+   @Component({
+     ...
+    imports: [RouterLink],
+     ...
+    })
    ```
     - Puis s'en servir à la place de href, etmettre les routes que l'on avait renseigner dans app.routes.ts :
    ```html
