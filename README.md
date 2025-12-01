@@ -69,12 +69,9 @@
 fichiers clés dans le projet:
 - **`src/`** : Contient le code source de l’application
   - **`app/`** : Contient le composant racine "app" & contient les composants, modules, et services principaux ( c'est ici que vous travaillerez la plupart du temps lors d'un projet Angular )
-  - **`assets/`** : Contient les fichiers statiques (images, JSON, etc.)
   - **`index.html`** : Point d’entrée HTML de l’application
   - **`main.ts`** : Point d’entrée TypeScript qui bootstrap l’application
-- **`node_modules/`** : Contient les dépendances npm
-- **`package.json`** : Liste les dépendances et scripts npm
-- **`angular.json`** : Configuration d’Angular CLI (build, serve, etc.)
+  - **`angular.json`** : Configuration d’Angular CLI (build, serve, etc.)
 
 **Utiliser ng serve** :
  Lancez le serveur de développement en éxécutant dans un terminal depuis la racine du projet :
@@ -179,7 +176,7 @@ Cette balise dynamique dans Angular c'est celle ci :
 <router-outlet></router-outlet>
 ```
 Vous pouvez donc mettre cette balise dans le template app.html !
-Cependant pour que cela fonctionne il faut importer le module correspondant dans app.ts
+Attention encore a bien import le module correspondant dans app.ts (il faut aussi le mettre dans l'attribut imports de @Component).
 ```typescript
 import { RouterOutlet } from '@angular/router';
 ```
