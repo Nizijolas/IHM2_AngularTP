@@ -185,6 +185,7 @@ Commençons par créer des composants à cette fin !
 
 Pour que Angular sache que l'on veut charger home quand on est dans '/home', about dans '/about' 
 Cela passe se passe dans app.routes.ts
+
 2. _**Configurez le routage dans `app.route.ts` :**_
   Il faut modifier la variable routes qui associe un chemin à un componsant de tel manière :
    ```typescript
