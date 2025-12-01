@@ -154,7 +154,17 @@ On sait maintenant que l'on peut faire appel à la navbar dans app.html comme ce
    <app-navbar></app-navbar>
    ```
 
-**Attention il est necessaire d'import Navbar dans app.ts **
+**Attention il est necessaire d'import Navbar dans app.ts, à la fois en haut du fichier et dans l'attribut imports de @Component:**
+
+```ts
+  import { Navbar } from "./navbar/navbar";
+  @Component({
+    ...
+    imports: [Navbar],
+    ...
+  })
+
+```
 
 ---
 
