@@ -154,6 +154,8 @@ On sait maintenant que l'on peut faire appel à la navbar dans app.html comme ce
    <app-navbar></app-navbar>
    ```
 
+**Attention il est necessaire d'import Navbar dans app.ts **
+
 ---
 
 #### 5. Créer plusieurs routes en SPA avec le module Router
@@ -187,15 +189,15 @@ Pour que Angular sache que l'on veut charger home quand on est dans '/home', abo
 Cela passe se passe dans app.routes.ts
 
 2. _**Configurez le routage dans `app.route.ts` :**_
-  Il faut modifier la variable routes qui associe un chemin à un componsant de tel manière :
+  Il faut modifier la variable routes qui associe un chemin à un composant de tel manière :
    ```typescript
    const routes: Routes = [
-     { path: '', component: HomeComponent },
-     { path: 'about', component: AboutComponent },
-     { path: 'contact', component: ContactComponent },
+     { path: '', component: Home },
+     { path: 'about', component: About },
+     { path: 'contact', component: Contact },
    ];
    ```
-   **Attention on ne met pas le '/ '**
+   **Attention on ne met pas le '/ ' , et il est nécessaire d'importer les components**
 
 3. _**Mettez à jour la navbar pour utiliser les routes :**_
    - C'est presque finis mais pour que cela fonctionne on ne peut pas utiliser le classique href="/..."  qui reloaderais complétement page, on doit à la place utiliser une directive d'Angular :  **routerLink="/..."**. 
