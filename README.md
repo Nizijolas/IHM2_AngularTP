@@ -239,6 +239,8 @@ Cela passe se passe dans app.routes.ts
    ```
 
 Vous pouvez maintenant naviguer entre les trois routes sans reload de la page mais avec seulement un changement du component à l'intérieur de router outlet ! 
+
+
 ---
 
 #### 6. Bind une propriété du TypeSript au template
