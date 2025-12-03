@@ -243,7 +243,7 @@ Vous pouvez maintenant naviguer entre les trois routes sans reload de la page ma
 
 ---
 
-#### 6. Bind une propriété du TypeSript au template
+#### 6. Bind une propriété du TypeScript au template
 **Nous allons ajouter une image dans le component home dont la source sera une variable décrite dans le typescript**
 
 **Étapes** :
