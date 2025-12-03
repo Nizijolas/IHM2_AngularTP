@@ -102,7 +102,7 @@ Et observez le changement dans votre navigateur !
    ```bash
    ng generate component navbar
    ```
-   - Cela va crée un dossier `src/app/navbar` avec les fichiers `navbar.ts`, `navbar.html`, `navbar.css`, et `navbar.spec.ts`.
+   - Cela va créer un dossier `src/app/navbar` avec les fichiers `navbar.ts`, `navbar.html`, `navbar.css`, et `navbar.spec.ts`.
    - Les composants dans Angular sont tous composés d'un fichier ts qui encapsulent la logique, d'un fichier html, d'un fichier css ( ainsi que d'un fichier .spec.ts que l'on touche rarement ).
 
 2. Modifiez le template de la navbar (`navbar.html` ) :
@@ -171,7 +171,7 @@ On sait maintenant que l'on peut faire appel à la navbar dans app.html comme ce
 **Objectif** : Implémenter un système de navigation avec plusieurs pages dans une SPA.
 
 L'idée  ici ça va être d'utiliser la navbar pour naviguer d'une page à l'autre mais sans que le navigateur charge réellement une autre page ( et donc faire vraiment une spa ) pour cela on va utilisé la fonctionnalité Router de Angular.
-Ce que l'on va devoir faire c'est avoir un balise dynamique qui charge un composant ou un autre selon l'URL actuel sans recharger complétement la page !
+Ce que l'on va devoir faire c'est avoir une balise dynamique qui charge un composant ou un autre selon l'URL actuel sans recharger complétement la page !
 Cette balise dynamique dans Angular c'est celle ci :
 
 ```html
@@ -226,7 +226,7 @@ Cela passe se passe dans app.routes.ts
      ...
     })
    ```
-    - Puis s'en servir à la place de href, etmettre les routes que l'on avait renseigner dans app.routes.ts :
+    - Puis s'en servir à la place de href, et mettre les routes que l'on avait renseigner dans app.routes.ts :
    ```html
    <nav class="navbar">
      <h1>Mon Application</h1>
@@ -244,7 +244,7 @@ Vous pouvez maintenant naviguer entre les trois routes sans reload de la page ma
 **Nous allons ajouter une image dans le component home dont la source sera une variable décrite dans le typescript**
 
 **Étapes** :
-1. _**Récupérer l'image 'angular.jpg**_
+1. _**Récupérer l'image 'angular.jpg'**_
 
 Récupérer l'image 'angular.jpg' présente sur ce dépôt github et mettez la dans le dossier 'public' du projet Angular.
 
