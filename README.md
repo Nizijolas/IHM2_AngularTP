@@ -258,14 +258,14 @@ Créons une variable qui correspond à la source de l'image dans le code typescr
 
 2. _**Modifier home.html et home.css**_
 
-Modifier home.html (on vient bind src à la variable créée en amont).
+On modifie home.html (on vient bind src à la variable créée en amont).
 
 ```html
   <div id="cadreImage">
   <img [src]="sourceImage" alt="">
   </div>
 ```
-Modifier home.css
+On modifie home.css
 
 ```css
 
@@ -282,8 +282,6 @@ Modifier home.css
 
 ```
 
-La directive **[src]** indique que src est bind à du code typescript, donc Angular va aller chercher la variable correspondante dans home.ts.
-
-Il faut donc définir la variable **sourceImage** dans le type
+La directive **[src]** indique que src est bind à du code typescript, donc Angular va aller chercher la variable correspondante dans home.ts, notre image s'affiche bien dans notre navigateur.
 
 
