@@ -218,6 +218,7 @@ Cela passe se passe dans app.routes.ts
 
     - Pour ce faire il faut importer le module RouterLink dans le fichier navbar.ts :
    ```typescript
+   
     import { RouterLink } from '@angular/router';
    @Component({
      ...
@@ -239,8 +240,50 @@ Cela passe se passe dans app.routes.ts
 
 Vous pouvez maintenant naviguer entre les trois routes sans reload de la page mais avec seulement un changement du component à l'intérieur de router outlet ! 
 
-**Vous pouvez vous amusez à mettre ce que vous voulez dans les components Home, About & Contact en touchant  à l'html au css et au ts.**
+#### 6. Bind une propriété du TypeSript au template
+**Nous allons ajouter une image dans le component home dont la source sera une variable décrite dans le typescript**
 
----
+**Étapes** :
+1. _**Récupérer l'image 'angular.jpg**_
+
+Récupérer l'image 'angular.jpg' présente sur ce dépôt github et mettez la dans le dossier 'public' du projet Angular.
+
+2. _**Créer une variable dans home.ts**_
+
+Créons une variable qui correspond à la source de l'image dans le code typescript:
+
+```ts
+    sourceImage: string = "angular.jpg";
+```
+
+2. _**Modifier home.html et home.css**_
+
+Modifier home.html (on vient bind src à la variable créée en amont).
+
+```html
+  <div id="cadreImage">
+  <img [src]="sourceImage" alt="">
+  </div>
+```
+Modifier home.css
+
+```css
+
+  #cadreImage{
+      width: 400px;
+      height: 400px;
+      margin: auto;
+  }
+  #cadreImage > img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+  }
+
+```
+
+La directive **[src]** indique que src est bind à du code typescript, donc Angular va aller chercher la variable correspondante dans home.ts.
+
+Il faut donc définir la variable **sourceImage** dans le type
 
 
